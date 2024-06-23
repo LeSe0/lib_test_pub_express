@@ -1,3 +1,5 @@
+// import 'dart:io';
+
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
@@ -40,19 +42,21 @@ class _MyAppState extends State<MyApp> {
 
     await FirebaseMessaging.instance.requestPermission();
 
-    // FirebaseMessaging.instance.getToken().then(
-    //   (token) {
-    //     print("fcm token: $token");
-    //     if (token != null) {
-    //       PushExpressManager().init(
-    //         '20322-1212',
-    //         TransportType.fcm,
-    //         transportToken: token,
-    //         foreground: true,
-    //       );
-    //     }
-    //   },
-    // );
+    // String? token;
+
+    // if (Platform.isIOS) {
+    //   token = await FirebaseMessaging.instance.getAPNSToken();
+    // } else {
+    //   token = await FirebaseMessaging.instance.getToken();
+    // }
+    // if (token != null) {
+    //   PushExpressManager().init(
+    //     '20322-1212',
+    //     TransportType.fcm,
+    //     transportToken: token,
+    //     foreground: true,
+    //   );
+    // }
 
     // FirebaseMessaging.onMessage.listen(
     //   NotificationManager().handleNotification,
